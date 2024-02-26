@@ -29,8 +29,8 @@ The application uses coding metrics to adjust music:
 
 ## Setup
 
-1. Clone the repository.
-2. Install dependencies, including Tkinter and Pygments.
+1. Clone the repository via ```git clone https://github.com/remsky/QuackenType.git```
+2. Install dependencies via ```pip install -r requirements.txt```
 3. Run `app.py` to start the application.
 
 ## Dependencies
