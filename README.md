@@ -1,7 +1,7 @@
+![QuackenType](https://github.com/remsky/QuackenType/assets/25017870/56b106d9-70f1-440c-ab01-22ee0d9f4a43)
 
-![QuackenType](https://github.com/remsky/QuackenType/assets/25017870/e75976aa-b190-4ba3-b41d-2a016a6cfd5e)
-
-# QuackenType: Dynamic Music Coding Environment
+# QuackenType 
+## Dynamic Music Coding Environment
 
 Welcome to QuackenType, a unique Python-based coding environment that dynamically adjusts ambient music in reaction to your coding activity. Enjoy an immersive and responsive coding experience that harmonizes your programming with melody.
 
