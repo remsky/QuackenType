@@ -20,6 +20,10 @@ class PythonTextEditor:
         self.average_wpm = 0
         self.instantaneous_wpm = 0
         self.def_count = 0
+        self.display_widget = tk.Text(root, height=5, state=tk.DISABLED)
+        self.display_widget.pack()
+        self.audio_param_display = tk.Text(root, height=3, width=80, state=tk.DISABLED)
+        self.audio_param_display.pack()
 
     def configure_tags(self):
         # Syntax highlighting configurations
@@ -41,6 +45,7 @@ class PythonTextEditor:
         self.update_def_count()
         self.update_music_based_on_stats()
         self.update_title_bar()
+        self.music_controller.update_display(self.display_widget)
 
     def update_typing_stats(self):
         text = self.text_area.get("1.0", tk.END)

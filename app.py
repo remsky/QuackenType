@@ -3,6 +3,8 @@ Simple music-responsive python code IDE
 """
 # %%
 import tkinter as tk
+import time
+import threading
 from lib.python_editor import PythonTextEditor
 from lib.music_controller import MusicController
 from lib.melodies import MELODIES
@@ -27,14 +29,24 @@ RULES = {
     }
 }
 
+
 def main():
     root = tk.Tk()
 
     music_controller = MusicController()
     music_controller.add_melody('Ambient', MELODIES['Ambient'])
     music_controller.add_melody('SimpleTune', MELODIES['SimpleTune'])
+
+    # Initialize the editor
     editor = PythonTextEditor(root, music_controller, RULES)
+    
+    # Start the music in a separate thread
+    music_thread = threading.Thread(target=music_controller.update_display, args=(editor.display_widget,))
+    music_thread.start()
+
+    # Start the Tkinter main loop
     root.mainloop()
+
 
 if __name__ == "__main__":
     main()

@@ -1,7 +1,7 @@
 # %%
 import time
 import threading
-
+import tkinter as tk
 from pyo import Server
 
 from lib.notes import NOTES
@@ -52,3 +52,22 @@ class MusicController:
         for melody in self.melodies.values():
             melody.stop()
         self.server.stop()
+
+    def update_display(self, display_widget):
+        ambient_state = self.melodies['Ambient'].get_audio_state()
+        simple_tune_state = self.melodies['SimpleTune'].get_audio_state()
+
+        display_text = "Ambient - Pitch: {:.2f}, Volume: {:.2f}, ADSR: ({:.2f}, {:.2f}, {:.2f}, {:.2f})\n".format(
+            ambient_state['pitch'], ambient_state['volume'], 
+            ambient_state['attack'], ambient_state['decay'], 
+            ambient_state['sustain'], ambient_state['release'])
+
+        display_text += "SimpleTune - Pitch: {:.2f}, Volume: {:.2f}, ADSR: ({:.2f}, {:.2f}, {:.2f}, {:.2f})".format(
+            simple_tune_state['pitch'], simple_tune_state['volume'], 
+            simple_tune_state['attack'], simple_tune_state['decay'], 
+            simple_tune_state['sustain'], simple_tune_state['release'])
+
+        display_widget.config(state=tk.NORMAL)
+        display_widget.delete("1.0", tk.END)
+        display_widget.insert(tk.END, display_text)
+        display_widget.config(state=tk.DISABLED)

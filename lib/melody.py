@@ -78,3 +78,14 @@ class Melody:
                 env.setSustain(self.sustain)
             if release is not None:
                 env.setRelease(self.release)
+
+    def get_audio_state(self):
+        # Example: returning the current base frequency and ADSR values
+        return {
+            'pitch': self.base_freq,
+            'attack': self.attack,
+            'decay': self.decay,
+            'sustain': self.sustain,
+            'release': self.release,
+            'volume': self.volume
+        }
